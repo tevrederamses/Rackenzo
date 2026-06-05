@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vakantieweek Familie Rack & Friends — 20–27 juli 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --forest: #1a2e1e;
+      --moss: #3a5a40;
+      --sage: #7a9e7e;
+      --cream: #f5f0e8;
+      --warm: #e8dcc8;
+      --gold: #c9a84c;
+      --text: #2c2c2c;
+      --muted: #6b6b6b;
+      --bg: #f5f0e8;
+      --card: #ffffff;
+      --border: rgba(0,0,0,0.1);
+    }
+    [data-theme="dark"] {
+      --cream: #1a1f1b;
+      --warm: #252d27;
+      --text: #e8e4da;
+      --muted: #8a9e8d;
+      --bg: #1a1f1b;
+      --card: #222922;
+      --border: rgba(255,255,255,0.08);
+      --forest: #2a4a2e;
+      --gold: #d4a850;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-weight: 300;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+    .header-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+    header h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .header-meta {
+      font-size: 0.85rem;
+      color: rgba(245,240,232,0.65);
+      margin-top: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .header-badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .badge {
+      border: 1px solid rgba(245,240,232,0.25);
+      padding: 0.3rem 0.9rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: rgba(245,240,232,0.8);
+    }
+
+    /* COUNTDOWN */
+    .countdown-section {
+      background: var(--moss);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .countdown-unit {
+      text-align: center;
+      min-width: 60px;
+    }
+    .countdown-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--cream);
+      line-height: 1;
+      display: block;
+    }
+    .countdown-unit-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      margin-top: 0.2rem;
+    }
+
+    /* WEATHER */
+    .weather-section {
+      background: var(--warm);
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .weather-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .weather-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    #weather-display {
+      font-size: 0.85rem;
+      color: var(--text);
+      flex: 1;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    /* SECTION BLOCKS */
+    .section-block {
+      margin-top: 2rem;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card);
+    }
+    .section-header {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+    .section-icon {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+    .section-body {
+      padding: 1.25rem;
+    }
+
+    /* INFO ROWS */
+    .info-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 0.88rem;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row strong {
+      min-width: 110px;
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding-top: 0.1rem;
+    }
+    .info-row a {
+      color: var(--moss);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(58,90,64,0.3);
+    }
+
+    /* TABLE */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .info-table th {
+      text-align: left;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--warm);
+    }
+    .info-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      vertical-align: top;
+    }
+    .info-table tr:last-child td { border-bottom: none; }
+    .info-table td a {
+      color: var(--moss);
+      text-decoration: none;
+      font-size: 0.78rem;
+    }
+
+    /* HIGHLIGHTS / CHIPS */
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 0.25rem;
+    }
+    .chip {
+      background: var(--warm);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 20px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.78rem;
+      color: var(--text);
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: var(--forest);
+      color: var(--cream);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .highlight-box strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* AGENDA */
+    .agenda-section {
+      margin-top: 2rem;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card);
+    }
+    .agenda-list { list-style: none; }
+    .agenda-item {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .agenda-item:last-child { border-bottom: none; }
+    .agenda-tag {
+      background: var(--warm);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.3;
+      font-weight: 500;
+      border-right: 1px solid rgba(0,0,0,0.07);
+    }
+    .agenda-tag.gold {
+      background: var(--gold);
+      color: var(--forest);
+    }
+    .agenda-content {
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .agenda-input {
+      border: none;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      padding: 0.2rem 0;
+      width: 100%;
+    }
+    .agenda-input:focus {
+      outline: none;
+      border-bottom-color: var(--moss);
+    }
+    .agenda-input::placeholder { color: rgba(0,0,0,0.22); }
+    .agenda-title { font-size: 0.9rem; font-weight: 500; }
+    .agenda-sub { font-size: 0.8rem; color: var(--muted); }
+
+    /* NOTEPAD */
+    .notepad-section {
+      margin-top: 2rem;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card);
+    }
+    .notepad-tabs {
+      display: flex;
+      overflow-x: auto;
+      background: var(--warm);
+      scrollbar-width: none;
+    }
+    .notepad-tabs::-webkit-scrollbar { display: none; }
+    .notepad-tab {
+      padding: 0.65rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: var(--muted);
+      border: none;
+      background: transparent;
+      white-space: nowrap;
+      font-family: 'DM Sans', sans-serif;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .notepad-tab.active {
+      color: var(--forest);
+      border-bottom-color: var(--moss);
+      background: rgba(255,255,255,0.5);
+    }
+    .notepad-body { padding: 1.25rem; }
+    .notepad-panel { display: none; }
+    .notepad-panel.active { display: block; }
+    .notepad-new {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .notepad-input {
+      flex: 1;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 8px;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.85rem;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .notepad-input:focus { outline: 2px solid var(--moss); }
+    .notepad-btn {
+      background: var(--forest);
+      color: var(--cream);
+      border: none;
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.06em;
+    }
+    .notepad-btn-secondary {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 8px;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .notepad-entries { list-style: none; }
+    .notepad-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 0.85rem;
+    }
+    .notepad-entry:last-child { border-bottom: none; }
+    .notepad-entry-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--warm);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      color: var(--muted);
+      white-space: nowrap;
+      margin-top: 0.1rem;
+    }
+    .entry-del {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: rgba(0,0,0,0.2);
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0 0.2rem;
+    }
+    .entry-del:hover { color: #c0392b; }
+    .notepad-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(0,0,0,0.07);
+    }
+
+    /* LINK BUTTON */
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      margin-top: 0.75rem;
+    }
+    .link-btn.secondary {
+      background: transparent;
+      color: var(--forest);
+      border: 1px solid var(--forest);
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: rgba(0,0,0,0.07);
+      margin: 1rem 0;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin-top: 2rem;
+    }
+
+    /* DARK MODE TOGGLE */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 100;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: background 0.2s;
+    }
+  </style>
+</head>
+<body>
+
+<button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+
+<header>
+  <p class="header-eyebrow">Zomer 2026 · België</p>
+  <h1>Familie Rack<br><em>&amp; Friends</em></h1>
+  <p class="header-meta">La Roche-en-Ardenne · 20 t/m 27 juli 2026</p>
+  <div class="header-badges">
+    <span class="badge">🏡 Groepsaccommodatie</span>
+    <span class="badge">📅 7 nachten</span>
+    <span class="badge">🇧🇪 Ardennen</span>
+  </div>
+</header>
+
+<div class="countdown-section">
+  <p class="countdown-label">Nog tot vertrek op zondag 20 juli 10:00</p>
+  <div class="countdown-grid">
+    <div class="countdown-unit">
+      <span class="countdown-number" id="cd-days">--</span>
+      <span class="countdown-unit-label">dagen</span>
+    </div>
+    <div class="countdown-unit">
+      <span class="countdown-number" id="cd-hours">--</span>
+      <span class="countdown-unit-label">uur</span>
+    </div>
+    <div class="countdown-unit">
+      <span class="countdown-number" id="cd-min">--</span>
+      <span class="countdown-unit-label">min</span>
+    </div>
+    <div class="countdown-unit">
+      <span class="countdown-number" id="cd-sec">--</span>
+      <span class="countdown-unit-label">sec</span>
+    </div>
+  </div>
+</div>
+
+<div class="weather-section">
+  <div class="weather-inner">
+    <span class="weather-label">Weer — La Roche</span>
+    <div id="weather-display">Weer ophalen…</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- VERBLIJF -->
+  <div class="section-block">
+    <div class="section-header">
+      <span class="section-icon">🏡</span>
+      <h2>Verblijf — ARD1134</h2>
+    </div>
+    <div class="section-body">
+      <div class="highlight-box">
+        Grote groepsaccommodatie aan de rand van La Roche, omgeven door <strong>bos, weide en water</strong>. Elk slaapkamer heeft eigen badkamer. Terras, tuin met vijver en volop ruimte voor actieve én ontspannen groepen.
+      </div>
+      <div class="info-row">
+        <strong>Adres</strong>
+        <span>La Roche-en-Ardenne, België<br>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=La+Roche-en-Ardenne+Belgium" target="_blank">🗺️ Navigeer via Google Maps</a></span>
+      </div>
+      <div class="info-row">
+        <strong>Check-in</strong>
+        <span>Zondag 20 juli</span>
+      </div>
+      <div class="info-row">
+        <strong>Checkout</strong>
+        <span>Zondag 27 juli — voor 10:00</span>
+      </div>
+      <div class="info-row">
+        <strong>Boekingspagina</strong>
+        <a href="https://www.heerlijkehuisjes.nl/vakantiehuis-la-roche-en-ardenne/ARD1134" target="_blank">heerlijkehuisjes.nl/ARD1134</a>
+      </div>
+      <div class="divider"></div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;letter-spacing:0.06em;text-transform:uppercase;">Faciliteiten</p>
+      <div class="chip-list">
+        <span class="chip">🎱 Biljartkamer</span>
+        <span class="chip">🍽️ Grote eetkamer</span>
+        <span class="chip">📺 Flatscreen tv</span>
+        <span class="chip">🌿 Tuin met vijver</span>
+        <span class="chip">🪵 Ruim terras</span>
+        <span class="chip">🚴 Fietsverhuur</span>
+        <span class="chip">🛶 Kano verhuur</span>
+        <span class="chip">🪣 Vlotten bouwen</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAMMA -->
+  <div class="agenda-section">
+    <div class="section-header">
+      <span class="section-icon">📅</span>
+      <h2>Weekschema</h2>
+    </div>
+    <ul class="agenda-list" id="agenda-list">
+      <li class="agenda-item"><span class="agenda-tag gold">Zo 20 jul</span><div class="agenda-content"><input class="agenda-input agenda-title" type="text" placeholder="Activiteit…" data-key="zo20-title" /><input class="agenda-input agenda-sub" type="text" placeholder="Toelichting…" data-key="zo20-sub" /></div></li>
+      <li class="agenda-item"><span class="agenda-tag">Ma 21 jul</span><div class="agenda-content"><input class="agenda-input agenda-title" type="text" placeholder="Activiteit…" data-key="ma21-title" /><input class="agenda-input agenda-sub" type="text" placeholder="Toelichting…" data-key="ma21-sub" /></div></li>
+      <li class="agenda-item"><span class="agenda-tag">Di 22 jul</span><div class="agenda-content"><input class="agenda-input agenda-title" type="text" placeholder="Activiteit…" data-key="di22-title" /><input class="agenda-input agenda-sub" type="text" placeholder="Toelichting…" data-key="di22-sub" /></div></li>
+      <li class="agenda-item"><span class="agenda-tag">Wo 23 jul</span><div class="agenda-content"><input class="agenda-input agenda-title" type="text" placeholder="Activiteit…" data-key="wo23-title" /><input class="agenda-input agenda-sub" type="text" placeholder="Toelichting…" data-key="wo23-sub" /></div></li>
+      <li class="agenda-item"><span class="agenda-tag">Do 24 jul</span><div class="agenda-content"><input class="agenda-input agenda-title" type="text" placeholder="Activiteit…" data-key="do24-title" /><input class="agenda-input agenda-sub" type="text" placeholder="Toelichting…" data-key="do24-sub" /></div></li>
+      <li class="agenda-item"><span class="agenda-tag">Vr 25 jul</span><div class="agenda-content"><input class="agenda-input agenda-title" type="text" placeholder="Activiteit…" data-key="vr25-title" /><input class="agenda-input agenda-sub" type="text" placeholder="Toelichting…" data-key="vr25-sub" /></div></li>
+      <li class="agenda-item"><span class="agenda-tag">Za 26 jul</span><div class="agenda-content"><input class="agenda-input agenda-title" type="text" placeholder="Activiteit…" data-key="za26-title" /><input class="agenda-input agenda-sub" type="text" placeholder="Toelichting…" data-key="za26-sub" /></div></li>
+      <li class="agenda-item"><span class="agenda-tag gold">Zo 27 jul</span><div class="agenda-content"><input class="agenda-input agenda-title" type="text" placeholder="Activiteit…" data-key="zo27-title" /><input class="agenda-input agenda-sub" type="text" placeholder="Toelichting…" data-key="zo27-sub" /></div></li>
+    </ul>
+  </div>
+
+  <!-- OMGEVING & ACTIVITEITEN -->
+  <div class="section-block">
+    <div class="section-header">
+      <span class="section-icon">🌲</span>
+      <h2>Omgeving &amp; Activiteiten</h2>
+    </div>
+    <div class="section-body">
+      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.06em;">Vanuit het huis te huren</p>
+      <div class="chip-list" style="margin-bottom:1rem;">
+        <span class="chip">🚴 Mountainbike</span>
+        <span class="chip">🛶 Kano</span>
+        <span class="chip">🪣 Vlot bouwen</span>
+      </div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.06em;">In de omgeving</p>
+      <div class="chip-list" style="margin-bottom:1rem;">
+        <span class="chip">🏰 Kasteel La Roche</span>
+        <span class="chip">🏛️ Battle of the Bulge museum</span>
+        <span class="chip">🌊 Grotten van Hotton</span>
+        <span class="chip">🏘️ Durbuy</span>
+        <span class="chip">🦌 Wildpark Terhills</span>
+        <span class="chip">🧗 Klimmen & abseilen</span>
+        <span class="chip">🎯 Paintball</span>
+        <span class="chip">🚵 Quad rijden</span>
+        <span class="chip">🪂 Paragliding</span>
+      </div>
+      <a class="link-btn secondary" href="https://www.google.com/maps/search/activiteiten+La+Roche-en-Ardenne" target="_blank">🗺️ Bekijk op kaart</a>
+    </div>
+  </div>
+
+  <!-- SUPERMARKTEN -->
+  <div class="section-block">
+    <div class="section-header">
+      <span class="section-icon">🛒</span>
+      <h2>Supermarkten in de buurt</h2>
+    </div>
+    <div class="section-body" style="padding:0;">
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th>Winkel</th>
+            <th>Openingstijden</th>
+            <th>Route</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🛒 Delhaize La Roche<br><span style="color:var(--muted);font-size:0.75rem;">Rue de Berismenil, La Roche</span></td>
+            <td>Ma–Za 08–19 · Zo 09–13</td>
+            <td><a href="https://www.google.com/maps/dir/?api=1&destination=Delhaize+La+Roche-en-Ardenne" target="_blank">🗺️ Route</a></td>
+          </tr>
+          <tr>
+            <td>🛒 Colruyt Marche-en-Famenne<br><span style="color:var(--muted);font-size:0.75rem;">~20 km</span></td>
+            <td>Ma–Za 08–19:30 · Zo gesloten</td>
+            <td><a href="https://www.google.com/maps/dir/?api=1&destination=Colruyt+Marche-en-Famenne" target="_blank">🗺️ Route</a></td>
+          </tr>
+          <tr>
+            <td>🛒 Lidl Marche-en-Famenne<br><span style="color:var(--muted);font-size:0.75rem;">~20 km</span></td>
+            <td>Ma–Za 08–20 · Zo 09–13</td>
+            <td><a href="https://www.google.com/maps/dir/?api=1&destination=Lidl+Marche-en-Famenne" target="_blank">🗺️ Route</a></td>
+          </tr>
+          <tr>
+            <td>🛒 Carrefour Bastogne<br><span style="color:var(--muted);font-size:0.75rem;">~30 km</span></td>
+            <td>Ma–Za 08–20 · Zo 09–18</td>
+            <td><a href="https://www.google.com/maps/dir/?api=1&destination=Carrefour+Bastogne" target="_blank">🗺️ Route</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- HANDIG TIJDENS VERBLIJF -->
+  <div class="section-block">
+    <div class="section-header">
+      <span class="section-icon">ℹ️</span>
+      <h2>Handig tijdens verblijf</h2>
+    </div>
+    <div class="section-body">
+      <div class="info-row">
+        <strong>Noodlijn BE</strong>
+        <span>112</span>
+      </div>
+      <div class="info-row">
+        <strong>Politie BE</strong>
+        <span>101</span>
+      </div>
+      <div class="info-row">
+        <strong>Apotheek</strong>
+        <a href="https://www.google.com/maps/search/apotheek+La+Roche-en-Ardenne" target="_blank">Zoek op Google Maps</a>
+      </div>
+      <div class="info-row">
+        <strong>Ziekenhuis</strong>
+        <span>CHR Sambre &amp; Meuse (Namur) ~60 km</span>
+      </div>
+      <div class="info-row">
+        <strong>Valuta</strong>
+        <span>Euro · geen pinproblemen</span>
+      </div>
+      <div class="info-row">
+        <strong>Rijbewijs</strong>
+        <span>Nederlands rijbewijs geldig in België</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTITIEBLOK -->
+  <div class="notepad-section">
+    <div class="section-header">
+      <span class="section-icon">📝</span>
+      <h2>Afspraken &amp; agenda</h2>
+    </div>
+    <div class="notepad-tabs" id="notepad-tabs">
+      <button class="notepad-tab active" data-tab="programma">Programma</button>
+      <button class="notepad-tab" data-tab="mensen">Mensen</button>
+      <button class="notepad-tab" data-tab="taken">Taken</button>
+      <button class="notepad-tab" data-tab="kosten">Kosten</button>
+      <button class="notepad-tab" data-tab="activiteit">Activiteit</button>
+      <button class="notepad-tab" data-tab="vervoer">Vervoer</button>
+      <button class="notepad-tab" data-tab="contact">Contact</button>
+      <button class="notepad-tab" data-tab="overig">Overig</button>
+    </div>
+    <div class="notepad-body">
+      <div id="active-tab-label" style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Programma</div>
+      <div class="notepad-new">
+        <input id="notepad-text" class="notepad-input" type="text" placeholder="Nieuw onderwerp toevoegen…" />
+        <button class="notepad-btn" onclick="addEntry()">Toevoegen</button>
+      </div>
+      <ul class="notepad-entries" id="notepad-list"></ul>
+      <div class="notepad-actions">
+        <button class="notepad-btn-secondary" onclick="clearEntries()">Alles wissen</button>
+        <button class="notepad-btn-secondary" onclick="printEntries()">Afdrukken</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Familie Rack &amp; Friends · La Roche-en-Ardenne · Juli 2026
+</footer>
+
+<script>
+  // COUNTDOWN
+  function updateCountdown() {
+    const target = new Date('2026-07-20T10:00:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.querySelector('.countdown-label').textContent = '🎉 Het is zover!';
+      ['cd-days','cd-hours','cd-min','cd-sec'].forEach(id => document.getElementById(id).textContent = '0');
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-min').textContent = String(mins).padStart(2,'0');
+    document.getElementById('cd-sec').textContent = String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // WEATHER via Open-Meteo (CORS-vriendelijk, geen API key)
+  async function loadWeather() {
+    try {
+      // La Roche-en-Ardenne: 50.1833, 5.5667
+      const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=50.1833&longitude=5.5667&current=temperature_2m,weathercode,windspeed_10m&wind_speed_unit=kmh&timezone=Europe/Brussels');
+      const d = await r.json();
+      const c = d.current;
+      const codes = {
+        0:'☀️ Helder',1:'🌤️ Overwegend helder',2:'⛅ Halfbewolkt',3:'☁️ Bewolkt',
+        45:'🌫️ Mist',48:'🌫️ Rijpmist',
+        51:'🌦️ Lichte motregen',53:'🌦️ Motregen',55:'🌧️ Zware motregen',
+        61:'🌧️ Lichte regen',63:'🌧️ Regen',65:'🌧️ Zware regen',
+        71:'🌨️ Lichte sneeuw',73:'🌨️ Sneeuw',75:'❄️ Zware sneeuw',
+        80:'🌦️ Lichte buien',81:'🌧️ Buien',82:'⛈️ Zware buien',
+        95:'⛈️ Onweer',96:'⛈️ Onweer met hagel',99:'⛈️ Zwaar onweer'
+      };
+      const desc = codes[c.weathercode] || '🌡️';
+      document.getElementById('weather-display').textContent =
+        `${desc} · ${Math.round(c.temperature_2m)}°C · 💨 ${Math.round(c.windspeed_10m)} km/u`;
+    } catch {
+      document.getElementById('weather-display').textContent = 'Niet beschikbaar';
+    }
+  }
+  loadWeather();
+
+  // NOTEPAD
+  let activeTab = 'programma';
+  let notes = JSON.parse(localStorage.getItem('rack-notes') || '{}');
+
+  function saveNotes() {
+    localStorage.setItem('rack-notes', JSON.stringify(notes));
+  }
+  function renderList() {
+    const list = document.getElementById('notepad-list');
+    const entries = notes[activeTab] || [];
+    list.innerHTML = entries.length === 0
+      ? '<li style="color:var(--muted);font-size:0.82rem;padding:0.5rem 0;">Nog geen notities.</li>'
+      : entries.map((e, i) => `
+        <li class="notepad-entry">
+          <span class="notepad-entry-tag">${activeTab}</span>
+          <span style="flex:1">${e}</span>
+          <button class="entry-del" onclick="deleteEntry(${i})" title="Verwijder">✕</button>
+        </li>`).join('');
+  }
+  function addEntry() {
+    const input = document.getElementById('notepad-text');
+    const val = input.value.trim();
+    if (!val) return;
+    if (!notes[activeTab]) notes[activeTab] = [];
+    notes[activeTab].push(val);
+    saveNotes();
+    renderList();
+    input.value = '';
+    input.focus();
+  }
+  function deleteEntry(i) {
+    notes[activeTab].splice(i, 1);
+    saveNotes();
+    renderList();
+  }
+  function clearEntries() {
+    if (!confirm('Alle notities in dit tabblad wissen?')) return;
+    notes[activeTab] = [];
+    saveNotes();
+    renderList();
+  }
+  function printEntries() {
+    const entries = (notes[activeTab] || []).join('\n');
+    const w = window.open('');
+    w.document.write(`<pre style="font-family:sans-serif;padding:2rem;">${activeTab.toUpperCase()}\n\n${entries || 'Geen notities.'}</pre>`);
+    w.print();
+  }
+
+  document.getElementById('notepad-tabs').addEventListener('click', e => {
+    const btn = e.target.closest('.notepad-tab');
+    if (!btn) return;
+    document.querySelectorAll('.notepad-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTab = btn.dataset.tab;
+    document.getElementById('active-tab-label').textContent = activeTab.charAt(0).toUpperCase() + activeTab.slice(1);
+    renderList();
+  });
+
+  document.getElementById('notepad-text').addEventListener('keydown', e => {
+    if (e.key === 'Enter') addEntry();
+  });
+
+
+  // AGENDA INPUTS - localStorage opslag
+  const agendaStore = JSON.parse(localStorage.getItem('rack-agenda') || '{}');
+
+  function saveAgenda() {
+    localStorage.setItem('rack-agenda', JSON.stringify(agendaStore));
+  }
+
+  document.querySelectorAll('.agenda-input').forEach(input => {
+    const key = input.dataset.key;
+    if (agendaStore[key]) input.value = agendaStore[key];
+    input.addEventListener('input', () => {
+      agendaStore[key] = input.value;
+      saveAgenda();
+    });
+  });
+
+  renderList();
+
+  // DARK MODE
+  function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('theme-toggle').textContent = isDark ? '🌙 Dark' : '☀️ Light';
+    localStorage.setItem('rack-theme', isDark ? 'light' : 'dark');
+  }
+  const savedTheme = localStorage.getItem('rack-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('theme-toggle').textContent = '☀️ Light';
+  }
+</script>
+
+</body>
+</html>
